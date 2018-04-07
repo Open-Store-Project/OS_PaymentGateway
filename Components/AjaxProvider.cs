@@ -52,7 +52,6 @@ namespace OSPaymentGateway
 
         public override void Validate()
         {
-            throw new NotImplementedException();
         }
 
     }
