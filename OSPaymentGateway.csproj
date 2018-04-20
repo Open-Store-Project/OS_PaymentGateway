@@ -87,6 +87,9 @@
     <Content Include="ReadMe.txt" />
     <Content Include="Themes\config\img\logo.png" />
     <Content Include="Themes\config\js\OSPaymentGateway.js" />
+    <None Include="BuildScripts\build.bat" />
+    <None Include="BuildScripts\ModulePackage.targets" />
+    <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
     <None Include="OSPaymentGateway.dnn" />
     <None Include="packages.config" />
     <None Include="Themes\config\default\payment_ok.cshtml" />
