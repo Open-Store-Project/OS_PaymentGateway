@@ -7,7 +7,7 @@
 @using NBrightDNN
 @using Nevoweb.DNN.NBrightBuy.Components
 
-@AddMetaData("resourcepath", "/DesktopModules/NBright/OSPaymentGateway/App_LocalResources")
+@AddMetaData("resourcepath", "/DesktopModules/NBright/OS_PaymentGateway/App_LocalResources")
 @AddMetaData("resourcepath", "/DesktopModules/NBright/NBrightBuy/App_LocalResources/")
 
 @{
@@ -16,9 +16,11 @@ var info = (NBrightInfo)Model.List.First();
 
 <div class="form-horizontal dnnForm">
 
-        <input id="itemid" type="hidden" value="@info.ItemID"/>
-        <input id="uilang" type="hidden" value="@Model.Lang"/>
-        <input id="nextlang" type="hidden" value="@Model.Lang" />
+    <input id="itemid" type="hidden" value="@info.ItemID" />
+    <input id="uilang" type="hidden" value="@Model.Lang" />
+    <input id="nextlang" type="hidden" value="@Model.Lang" />
+    <!-- ctrl name required to pass to the settingfield.cshtml template, so it can link the order to the payment method -->
+    <input id="ctrl" type="hidden" update="save" value="@Model.GetUrlParam("ctrl")" />
 
 
     <div class="row">
@@ -87,7 +89,7 @@ var info = (NBrightInfo)Model.List.First();
             </div>
         </div>
 
-        </div>
+    </div>
 
     <div class="row">
         <div class="form-group">
@@ -113,56 +115,57 @@ var info = (NBrightInfo)Model.List.First();
     </div>
 
     <div class="row">
-            <div class="form-group">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-5">
-                    <h3>@ResourceKey("Payment.OSPaymentGatewaysettings")</h3>
-                </div>
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5">
+                <h3>@ResourceKey("Payment.OS_PaymentGatewaysettings")</h3>
             </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">SITE</label>
-                <div class="col-sm-3">
-                    @TextBox(info, "genxml/textbox/site", "class='form-control'", "999")
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-sm-2 control-label">KEY</label>
-                <div class="col-sm-3">
-                    @TextBox(info, "genxml/textbox/key", "class='form-control'")
-                </div>            </div>
-
-
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Pre-Production Mode</label>
-                <div class="col-sm-3">
-                    @CheckBox(info, "genxml/checkbox/preproduction", "")
-                </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">SITE</label>
+            <div class="col-sm-3">
+                @TextBox(info, "genxml/textbox/site", "class='form-control'", "999")
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-5">
-                    <h3>@ResourceKey("Payment.processoptions")</h3>
-                </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">KEY</label>
+            <div class="col-sm-3">
+                @TextBox(info, "genxml/textbox/key", "class='form-control'")
             </div>
+        </div>
 
-            <div class="form-group">
-                <label class="col-sm-2 control-label">@ResourceKey("General.DebugMode")</label>
-                <div class="col-sm-5">
-                    <div class="dnnFormItem">
-                        @CheckBox(info, "genxml/checkbox/debugmode", ResourceKey("Settings.debugmode", info.Lang).ToString())
-                    </div>
-                </div>
-            </div>
-            <hr />
-            <div class="form-group">
-                <label class="col-sm-2 control-label"></label>
-                <div class="col-sm-3">
-                    @info.GetXmlProperty("genxml/debugmsg")
-                </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Pre-Production Mode</label>
+            <div class="col-sm-3">
+                @CheckBox(info, "genxml/checkbox/preproduction", "")
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5">
+                <h3>@ResourceKey("Payment.processoptions")</h3>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">@ResourceKey("General.DebugMode")</label>
+            <div class="col-sm-5">
+                <div class="dnnFormItem">
+                    @CheckBox(info, "genxml/checkbox/debugmode", ResourceKey("Settings.debugmode", info.Lang).ToString())
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+                @info.GetXmlProperty("genxml/debugmsg")
+            </div>
+        </div>
+    </div>
+</div>

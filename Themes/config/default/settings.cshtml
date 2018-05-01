@@ -7,14 +7,14 @@
 @using NBrightDNN
 @using Nevoweb.DNN.NBrightBuy.Components
 
-@AddMetaData("resourcepath", "/DesktopModules/NBright/OSPaymentGateway/App_LocalResources")
+@AddMetaData("resourcepath", "/DesktopModules/NBright/OS_PaymentGateway/App_LocalResources")
 @AddMetaData("resourcepath", "/DesktopModules/NBright/NBrightBuy/App_LocalResources/")
 
 @{
 var info = (NBrightInfo)Model.List.First();
 }
 
-<script type="text/javascript" src="/DesktopModules/NBright/OSPaymentGateway/Themes/config/js/OSPaymentGateway.js"></script>
+<script type="text/javascript" src="/DesktopModules/NBright/OS_PaymentGateway/Themes/config/js/OS_PaymentGateway.js"></script>
 
 <br />
 
@@ -25,7 +25,7 @@ var info = (NBrightInfo)Model.List.First();
                 <i class="fa fa-bars"></i>
             </a>
             <div class="actionbuttonwrapper">
-                <a id="OSPaymentGateway_cmdSave" class="btn btn-primary" href="javascript:void(0);">@ResourceKey("General.cmdSaveButton")</a>
+                <a id="OS_PaymentGateway_cmdSave" class="btn btn-primary" href="javascript:void(0);">@ResourceKey("General.cmdSaveButton")</a>
             </div>
         </div>
         <div class="col-xs-3 col-sm-3 top-panel-right">
@@ -35,19 +35,19 @@ var info = (NBrightInfo)Model.List.First();
 
 <div class="row">
 
-    <div class="OSPaymentGatewayreturnmsg">
+    <div class="OS_PaymentGatewayreturnmsg">
     </div>
 
     <div class="col-xs-12 col-sm-12">
         <div class="box">            
             <div class="box-header">
                 <div class="box-name">
-                    <i class="fa fa-search"></i><span>OSPaymentGateway Payment</span>
+                    <i class="fa fa-search"></i><span>OS_PaymentGateway Payment</span>
                 </div>
             </div>
-            <div class="box-content OSPaymentGatewaydata">
+            <div class="box-content OS_PaymentGatewaydata">
 
-                @RenderTemplate("\\DesktopModules\\NBright\\OSPaymentGateway\\Themes\\config\\Default\\settingsfields.cshtml", Model)
+                @RenderTemplate("\\DesktopModules\\NBright\\OS_PaymentGateway\\Themes\\config\\Default\\settingsfields.cshtml", Model)
 
             </div>
         </div>

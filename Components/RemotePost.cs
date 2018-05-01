@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace OSPaymentGateway
+namespace OS_PaymentGateway
 {
     public class RemotePost
     {

@@ -14,10 +14,10 @@ using NBrightDNN;
 
 using Nevoweb.DNN.NBrightBuy.Base;
 using Nevoweb.DNN.NBrightBuy.Components;
-using OSPaymentGateway.DNN.NBrightStore;
+using OS_PaymentGateway.DNN.NBrightStore;
 using DataProvider = DotNetNuke.Data.DataProvider;
 
-namespace OSPaymentGateway
+namespace OS_PaymentGateway
 {
 
     /// -----------------------------------------------------------------------------
@@ -25,7 +25,7 @@ namespace OSPaymentGateway
     /// The ViewNBrightGen class displays the content
     /// </summary>
     /// -----------------------------------------------------------------------------
-    public partial class OSPaymentGatewayPayment : NBrightBuyAdminBase
+    public partial class OS_PaymentGatewayPayment : NBrightBuyAdminBase
     {
 
         #region Event Handlers
@@ -45,7 +45,7 @@ namespace OSPaymentGateway
             if (NBrightBuyUtils.CheckRights())
             {
                 var objCtrl = new NBrightBuyController();
-                var info = objCtrl.GetPluginSinglePageData("OSPaymentGatewaypayment", "OSPaymentGatewayPAYMENT", Utils.GetCurrentCulture());
+                var info = objCtrl.GetPluginSinglePageData("OS_PaymentGatewaypayment", "OS_PaymentGatewayPAYMENT", Utils.GetCurrentCulture());
                 var strOut = NBrightBuyUtils.RazorTemplRender("settings.cshtml", 0, "", info, ControlPath, "config", Utils.GetCurrentCulture(), StoreSettings.Current.Settings());
                 var l = new Literal();
                 l.Text = strOut;

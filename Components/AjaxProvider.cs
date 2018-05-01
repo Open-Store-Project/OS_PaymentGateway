@@ -12,13 +12,13 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.Localization;
 using NBrightCore.common;
 using NBrightDNN;
-using OSPaymentGateway.DNN.NBrightStore;
+using OS_PaymentGateway.DNN.NBrightStore;
 using Nevoweb.DNN.NBrightBuy.Components;
 using Nevoweb.DNN.NBrightBuy.Components.Products;
 using Nevoweb.DNN.NBrightBuy.Components.Interfaces;
 using RazorEngine.Compilation.ImpromptuInterface.InvokeExt;
 
-namespace OSPaymentGateway
+namespace OS_PaymentGateway
 {
     public class AjaxProvider : AjaxInterface
     {
@@ -30,19 +30,19 @@ namespace OSPaymentGateway
             var lang = NBrightBuyUtils.SetContextLangauge(ajaxInfo); // Ajax breaks context with DNN, so reset the context language to match the client.
             var objCtrl = new NBrightBuyController();
 
-            var strOut = "OSPaymentGateway Ajax Error";
+            var strOut = "OS_PaymentGateway Ajax Error";
 
             // NOTE: The paramCmd MUST start with the plugin ref. in lowercase. (links ajax provider to cmd)
             switch (paramCmd)
             {
-                case "ospaymentgateway_savesettings":
+                case "os_paymentgateway_savesettings":
                     strOut = objCtrl.SavePluginSinglePageData(context);
                     break;
-                case "ospaymentgateway_selectlang":
+                case "os_paymentgateway_selectlang":
                     objCtrl.SavePluginSinglePageData(context);
                     var nextlang = ajaxInfo.GetXmlProperty("genxml/hidden/nextlang");
-                    var info = objCtrl.GetPluginSinglePageData("OSPaymentGatewaypayment", "OSPaymentGatewayPAYMENT", nextlang);
-                    strOut = NBrightBuyUtils.RazorTemplRender("settingsfields.cshtml", 0, "", info, "/DesktopModules/NBright/OSPaymentGateway", "config", nextlang, StoreSettings.Current.Settings());
+                    var info = objCtrl.GetPluginSinglePageData("OS_PaymentGatewaypayment", "OS_PaymentGatewayPAYMENT", nextlang);
+                    strOut = NBrightBuyUtils.RazorTemplRender("settingsfields.cshtml", 0, "", info, "/DesktopModules/NBright/OS_PaymentGateway", "config", nextlang, StoreSettings.Current.Settings());
                     break;
             }
 

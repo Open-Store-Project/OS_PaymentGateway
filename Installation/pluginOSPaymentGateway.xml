@@ -3,11 +3,11 @@
     <index datatype="double">99</index>
   </hidden>
   <textbox>
-    <ctrl update="save">OSPaymentGateway</ctrl>
-    <name update="save">OSPaymentGateway Payment</name>
+    <ctrl update="save">OS_PaymentGateway</ctrl>
+    <name update="save">OS_PaymentGateway Payment</name>
     <icon update="save" />
     <group update="save">Admin</group>
-    <path update="save">/DesktopModules/NBright/OSPaymentGateway/Payment.ascx</path>
+    <path update="save">/DesktopModules/NBright/OS_PaymentGateway/Payment.ascx</path>
     <help update="save" />
     <description update="save" />
   </textbox>
@@ -29,8 +29,8 @@
       <files />
       <hidden />
       <textbox>
-        <assembly>OSPaymentGateway</assembly>
-        <namespaceclass>OSPaymentGateway.OSPaymentGatewayPaymentProvider</namespaceclass>
+        <assembly>OS_PaymentGateway</assembly>
+        <namespaceclass>OS_PaymentGateway.OS_PaymentGatewayPaymentProvider</namespaceclass>
       </textbox>
       <checkbox>
         <active>True</active>
@@ -45,8 +45,8 @@
       <files />
       <hidden />
       <textbox>
-        <assembly>OSPaymentGateway</assembly>
-        <namespaceclass>OSPaymentGateway.AjaxProvider</namespaceclass>
+        <assembly>OS_PaymentGateway</assembly>
+        <namespaceclass>OS_PaymentGateway.AjaxProvider</namespaceclass>
       </textbox>
       <checkbox>
         <active>True</active>

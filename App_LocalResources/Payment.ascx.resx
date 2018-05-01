@@ -147,8 +147,8 @@
   <data name="failreturndisplay.Text" xml:space="preserve">
     <value>Failed Return Display</value>
   </data>
-  <data name="OSPaymentGatewaysettings.Text" xml:space="preserve">
-    <value>OSPaymentGateway Settings</value>
+  <data name="OS_PaymentGatewaysettings.Text" xml:space="preserve">
+    <value>OS_PaymentGateway Settings</value>
   </data>
   <data name="processoptions.Text" xml:space="preserve">
     <value>Process Options</value>

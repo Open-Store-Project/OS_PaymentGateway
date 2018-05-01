@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OSPaymentGateway
+namespace OS_PaymentGateway
 {
 
 
-    public partial class OSPaymentGatewayPayment
+    public partial class OS_PaymentGatewayPayment
     {
 
         /// <summary>

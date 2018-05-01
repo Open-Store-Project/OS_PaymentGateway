@@ -13,14 +13,14 @@ using NBrightDNN;
 using Nevoweb.DNN.NBrightBuy.Components;
 using DotNetNuke.Common.Utilities;
 
-namespace OSPaymentGateway
+namespace OS_PaymentGateway
 {
     public class ProviderUtils
     {
         public static NBrightInfo GetProviderSettings()
         {
             var objCtrl = new NBrightBuyController();
-            var info = objCtrl.GetPluginSinglePageData("OSPaymentGatewaypayment", "OSPaymentGatewayPAYMENT", Utils.GetCurrentCulture());
+            var info = objCtrl.GetPluginSinglePageData("OS_PaymentGatewaypayment", "OS_PaymentGatewayPAYMENT", Utils.GetCurrentCulture());
             return info;
         }
 
@@ -30,7 +30,7 @@ namespace OSPaymentGateway
             var rPost = new RemotePost();
 
             var objCtrl = new NBrightBuyController();
-            var info = objCtrl.GetPluginSinglePageData("OSPaymentGatewaypayment", "OSPaymentGatewayPAYMENT", orderData.Lang);
+            var info = objCtrl.GetPluginSinglePageData("OS_PaymentGatewaypayment", "OS_PaymentGatewayPAYMENT", orderData.Lang);
 
             var param = new string[3];
             param[0] = "orderid=" + orderData.PurchaseInfo.ItemID.ToString("");
@@ -58,7 +58,7 @@ namespace OSPaymentGateway
 
             if (info.GetXmlPropertyBool("genxml/checkbox/debugmode"))
             {
-                File.WriteAllText(PortalSettings.Current.HomeDirectoryMapPath + "\\debug_OSPaymentGatewaypost.html", rtnStr);
+                File.WriteAllText(PortalSettings.Current.HomeDirectoryMapPath + "\\debug_OS_PaymentGatewaypost.html", rtnStr);
             }
             return rtnStr;
         }

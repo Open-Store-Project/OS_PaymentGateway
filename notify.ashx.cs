@@ -4,12 +4,12 @@ using System.Web;
 using NBrightCore.common;
 using Nevoweb.DNN.NBrightBuy.Components;
 
-namespace OSPaymentGateway.DNN.NBrightStore
+namespace OS_PaymentGateway.DNN.NBrightStore
 {
     /// <summary>
     /// Summary description for XMLconnector
     /// </summary>
-    public class OSPaymentGatewayNotify : IHttpHandler
+    public class OS_PaymentGatewayNotify : IHttpHandler
     {
         private String _lang = "";
 
@@ -24,7 +24,7 @@ namespace OSPaymentGateway.DNN.NBrightStore
         public void ProcessRequest(HttpContext context)
         {
             var modCtrl = new NBrightBuyController();
-            var info = modCtrl.GetPluginSinglePageData("OSPaymentGatewaypayment", "OSPaymentGatewayPAYMENT", Utils.GetCurrentCulture());
+            var info = modCtrl.GetPluginSinglePageData("OS_PaymentGatewaypayment", "OS_PaymentGatewayPAYMENT", Utils.GetCurrentCulture());
 
             try
             {
@@ -36,9 +36,9 @@ namespace OSPaymentGateway.DNN.NBrightStore
                 // In this case the payment provider passes back data via form POST.
                 // Get the data we need.
                 string returnmessage = "";
-                int OSPaymentGatewayStoreOrderID = 0;
-                string OSPaymentGatewayCartID = "";
-                string OSPaymentGatewayClientLang = "";
+                int OS_PaymentGatewayStoreOrderID = 0;
+                string OS_PaymentGatewayCartID = "";
+                string OS_PaymentGatewayClientLang = "";
 
                 var orderid = Utils.RequestQueryStringParam(context, "ref");
                 debugMsg += "orderid: " + orderid + "</br>";
@@ -48,14 +48,14 @@ namespace OSPaymentGateway.DNN.NBrightStore
                     var authcode = Utils.RequestQueryStringParam(context, "auto");
                     var errcode = Utils.RequestQueryStringParam(context, "rtnerr");
 
-                    OSPaymentGatewayStoreOrderID = Convert.ToInt32(orderid);
+                    OS_PaymentGatewayStoreOrderID = Convert.ToInt32(orderid);
                     // ------------------------------------------------------------------------
 
                     debugMsg += "OrderId: " + orderid + " </br>";
                     debugMsg += "errcode: " + errcode + " </br>";
                     debugMsg += "authcode: " + authcode + " </br>";
 
-                    var orderData = new OrderData(OSPaymentGatewayStoreOrderID);
+                    var orderData = new OrderData(OS_PaymentGatewayStoreOrderID);
 
 
                     if (authcode == "")
@@ -103,7 +103,7 @@ namespace OSPaymentGateway.DNN.NBrightStore
             {
                 if (!ex.ToString().StartsWith("System.Threading.ThreadAbortException")) // we expect a thread abort from the End response.
                 {
-                    info.SetXmlProperty("genxml/debugmsg", "OSPaymentGateway ERROR: " + ex.ToString());
+                    info.SetXmlProperty("genxml/debugmsg", "OS_PaymentGateway ERROR: " + ex.ToString());
                     modCtrl.Update(info);
                 }
             }

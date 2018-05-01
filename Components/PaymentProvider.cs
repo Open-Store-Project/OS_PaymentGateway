@@ -11,9 +11,9 @@ using NBrightCore.common;
 using NBrightDNN;
 using Nevoweb.DNN.NBrightBuy.Components;
 
-namespace OSPaymentGateway
+namespace OS_PaymentGateway
 {
-    public class OSPaymentGatewayPaymentProvider : Nevoweb.DNN.NBrightBuy.Components.Interfaces.PaymentsInterface
+    public class OS_PaymentGatewayPaymentProvider : Nevoweb.DNN.NBrightBuy.Components.Interfaces.PaymentsInterface
     {
         public override string Paymentskey { get; set; }
 
@@ -21,7 +21,7 @@ namespace OSPaymentGateway
         {
             var templ = "";
             var objCtrl = new NBrightBuyController();
-            var info = objCtrl.GetPluginSinglePageData("OSPaymentGatewaypayment", "OSPaymentGatewayPAYMENT", Utils.GetCurrentCulture());
+            var info = objCtrl.GetPluginSinglePageData("OS_PaymentGatewaypayment", "OS_PaymentGatewayPAYMENT", Utils.GetCurrentCulture());
             var templateName = info.GetXmlProperty("genxml/textbox/checkouttemplate");
             var passSettings = info.ToDictionary();
             foreach (var s in StoreSettings.Current.Settings()) // copy store setting, otherwise we get a byRef assignement
@@ -31,7 +31,7 @@ namespace OSPaymentGateway
                 else
                     passSettings.Add(s.Key, s.Value);
             }
-            templ = NBrightBuyUtils.RazorTemplRender(templateName, 0, "", info, "/DesktopModules/NBright/OSPaymentGateway", "config", Utils.GetCurrentCulture(), passSettings);
+            templ = NBrightBuyUtils.RazorTemplRender(templateName, 0, "", info, "/DesktopModules/NBright/OS_PaymentGateway", "config", Utils.GetCurrentCulture(), passSettings);
 
             return templ;
         }
@@ -112,12 +112,12 @@ namespace OSPaymentGateway
             if (paymentok)
             {
                 info.SetXmlProperty("genxml/ordernumber", orderData.OrderNumber);
-                templ = NBrightBuyUtils.RazorTemplRender(displaytemplate, 0, "", info, "/DesktopModules/NBright/OSPaymentGateway", "config", Utils.GetCurrentCulture(), passSettings);
+                templ = NBrightBuyUtils.RazorTemplRender(displaytemplate, 0, "", info, "/DesktopModules/NBright/OS_PaymentGateway", "config", Utils.GetCurrentCulture(), passSettings);
             }
             else
             {
                 displaytemplate = "payment_fail.cshtml";
-                templ = NBrightBuyUtils.RazorTemplRender(displaytemplate, 0, "", info, "/DesktopModules/NBright/OSPaymentGateway", "config", Utils.GetCurrentCulture(), passSettings);
+                templ = NBrightBuyUtils.RazorTemplRender(displaytemplate, 0, "", info, "/DesktopModules/NBright/OS_PaymentGateway", "config", Utils.GetCurrentCulture(), passSettings);
             }
 
             return templ;
