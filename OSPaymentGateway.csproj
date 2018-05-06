@@ -78,6 +78,13 @@
       <DependentUpon>notify.ashx</DependentUpon>
     </Compile>
     <Compile Include="Components\RemotePost.cs" />
+    <Compile Include="Return.aspx.cs">
+      <DependentUpon>Return.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return.aspx.designer.cs">
+      <DependentUpon>Return.aspx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Installation\pluginOSPaymentGateway.xml" />
@@ -85,6 +92,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="ReadMe.txt" />
+    <Content Include="Return.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Themes\config\img\logo.png" />
     <Content Include="Themes\config\js\OSPaymentGateway.js" />
     <None Include="BuildScripts\build.bat" />
