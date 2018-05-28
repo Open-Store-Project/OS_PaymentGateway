@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\AjaxProvider.cs" />
+    <Compile Include="Components\PaymentProvider.cs" />
     <Compile Include="Payment.ascx.cs">
       <DependentUpon>Payment.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -71,7 +72,6 @@
     <Compile Include="Payment.ascx.designer.cs">
       <DependentUpon>Payment.ascx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\PaymentProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Components\ProviderUtils.cs" />
     <Compile Include="notify.ashx.cs">
