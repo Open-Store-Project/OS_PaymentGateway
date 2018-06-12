@@ -11,12 +11,7 @@
     var info = (NBrightInfo)Model.List.First();
 }
 
-@if (Model.GetSettingBool("carttitle"))
-{
     <h1>@ResourceKey("CartView.YourBasket")</h1>
-}
-@if (Model.GetSettingBool("cartsteps"))
-{
     <div class="checkoutsteps">
         <div class="checkoutstepsheader">@ResourceKey("CartView.CartstepsProcess")</div>
         <ol>
@@ -27,7 +22,6 @@
             <li class="step5 activestep">@ResourceKey("CartView.CartstepsConfirm")</li>
         </ol>
     </div>
-}
 
 <div class="nbs paymentcomplete">
 
